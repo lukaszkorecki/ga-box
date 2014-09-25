@@ -6,37 +6,38 @@ log() {
   logger -s -t PROVISIONER -- "$*"
 }
 
-Quiet() {
+_q() {
   log "> $*"
   $* > /dev/null
 }
 
 # get all required packages
 
-Quiet apt-get update -q
-Quiet apt-get -y -q install git-core  \
+_q apt-get update -q
+_q apt-get -y -q install git-core  \
   python-software-properties \
-  libpq-dev \
   build-essential \
+  libpq-dev \
   unzip \
   libsqlite3-dev \
   poppler-utils \
   libcurl4-openssl-dev \
   libsqlite3-dev \
-  nfs-server
+  nfs-server \
+  nodejs # needed by asset pipeline, no less :-/
 
 
 # add brightbox ppa
 
-Quiet apt-add-repository ppa:brightbox/ruby-ng
+_q apt-add-repository ppa:brightbox/ruby-ng
 
 # install latest ruby
 
-Quiet apt-get update -q
+_q apt-get update -q
 
-Quiet apt-get -y -q install ruby2.1  ruby2.1-dev
+_q apt-get -y -q install ruby2.1  ruby2.1-dev
 
-Quiet update-alternatives --set ruby /usr/bin/ruby2.1
+_q update-alternatives --set ruby /usr/bin/ruby2.1
 
 gem install bundler pry rails --no-rdoc --no-ri
 
