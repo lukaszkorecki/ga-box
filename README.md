@@ -11,7 +11,9 @@
 
 ### VM setup
 
-1. Clone this repository
+1. Clone this repository:
+  `git clone https://github.com/lukaszkorecki/ga-box.git`
+
 2. `vagrant up`
 3. That's it!
 
