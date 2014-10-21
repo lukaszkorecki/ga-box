@@ -5,7 +5,7 @@
 
 ### Required software
 
-1. Install [git](https://git-scm.org)
+1. Install [git](http://git-scm.org)
 2. Install [VirtualBox](https://www.virtualbox.org/)
 3. Install [Vagrant](https://vagrantup.com)
 
